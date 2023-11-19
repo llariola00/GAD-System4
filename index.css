@@ -1,19 +1,11 @@
 @import url("./assets/sidebar/sidebar.css");
+.outline {
+    outline: red solid 1px;
+}
+
 .main {
-    background-color: rgba(255, 29, 29, 0.637);
-    margin-top: var(--header-height) !important;
-}
-
-.main-chart {
-    background-color: aqua;
-}
-
-.side-wrapper {
-    background-color: rgba(195, 255, 29, 0.637);
-}
-
-.side-quarterly {
-    background-color: blueviolet;
+    background-color: rgba(255, 199, 199, 0.637);
+    padding-top: calc(var(--header-height) + 0.25rem) !important;
 }
 
 /*     DATE SELECTOR
@@ -47,6 +39,6 @@
 
 @media screen and (min-width: 768px) {
     .main {
-        margin-top: calc(var(--header-height) + 1rem) !important;
+        padding-top: calc(var(--header-height) + 1.25rem) !important;
     }
 }

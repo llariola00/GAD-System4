@@ -98,7 +98,7 @@
                 <div>
                     <a href="index.html" class="nav_logo">
                         <i class="bx bx-layer nav_logo-icon"></i>
-                        <span class="nav_logo-name">GAD Office</span>
+                        <span class="nav_logo-name">GAD OFFICE</span>
                     </a>
                     <div class="nav_list">
                         <a href="index.html" class="nav_link active">
@@ -130,19 +130,27 @@
             </nav>
         </div>
         <!--Container Main start-->
-        <main class="main height-100 container">
-            <div class="row">
-                <section class="main-chart col-12">
-                    <canvas></canvas>
+        <main
+            class="main height-100 container-xxl d-flex align-items-center justify-content-center"
+        >
+            <div class="outline row">
+                <section class="outline main-chart-section col-lg-8">
+                    <aside class="outline row">
+                        <div class="outline col-6" id="card-chart-name">
+                            Attendance
+                        </div>
+                        <div class="outline col-6" id="card-date">DATE</div>
+                    </aside>
+                    <div class="outline main-chart-wrapper container-xxl">
+                        <canvas id="main-chart"></canvas>
+                    </div>
                 </section>
 
-                <section class="side-wrapper col-12">
-                    <aside class="row col-12">
-                        <div class="col-6" id="test-date">DATE</div>
-                        <div class="col-6" id="test-total">TOTAL</div>
-                    </aside>
-
-                    <div class="side-quarterly col-12"><canvas></canvas></div>
+                <section class="outline side-wrapper col-lg-4">
+                    <div class="outline" id="card-total">TOTAL</div>
+                    <div class="outline side-quarterly">
+                        <canvas id="side-chart-quarterly"></canvas>
+                    </div>
                 </section>
             </div>
         </main>
