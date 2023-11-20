@@ -130,19 +130,39 @@
             </nav>
         </div>
         <!--Container Main start-->
-        <main
-            class="main height-100 container-xxl d-flex align-items-center justify-content-center"
-        >
+        <main class="main height-100 container-xxl">
             <div class="outline row">
                 <section class="outline main-chart-section col-lg-8">
                     <aside class="outline row">
                         <div class="outline col-6" id="card-chart-name">
-                            Attendance
+                            <div
+                                class="card-wrapper card shadow-sm text-center"
+                            >
+                                <div class="card-body">
+                                    <h5 class="card-title m-0">ATTENDANCE</h5>
+                                </div>
+                            </div>
                         </div>
-                        <div class="outline col-6" id="card-date">DATE</div>
+
+                        <div class="outline col-6" id="card-date">
+                            <div class="card shadow-sm text-center">
+                                <div class="card-body">
+                                    <h6
+                                        className="card-subtitle mb-2 text-body-secondary"
+                                    >
+                                        DATE
+                                    </h6>
+                                    <h5 className="card-title">2023</h5>
+                                    <p className="card-text">JAN</p>
+                                </div>
+                            </div>
+                        </div>
                     </aside>
-                    <div class="outline main-chart-wrapper container-xxl">
-                        <canvas id="main-chart"></canvas>
+
+                    <div class="outline container-xxl">
+                        <div class="main-chart-wrapper">
+                            <canvas id="main-chart"></canvas>
+                        </div>
                     </div>
                 </section>
 
