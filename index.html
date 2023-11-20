@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="assets/sidebar/sidebar.css" />
         <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css" />
         <link href="assets/boxicons/css/boxicons.min.css" rel="stylesheet" />
+        <!-- DATATABLE STYLE -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -117,7 +119,7 @@
                             <i class="bx bx-bookmark nav_icon"></i>
                             <span class="nav_name">Logs</span>
                         </a>
-                        <a href="#" class="nav_link">
+                        <a class="nav_link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="bx bx-folder nav_icon"></i>
                             <span class="nav_name">Import</span>
                         </a>
@@ -153,6 +155,84 @@
                     </div>
                 </section>
             </div>
+        
+        <!-- Modal CONTENT-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered" role="document">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Import Excel Files Here:</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="table-one">
+                            <form class="create" method="post">
+                                <label>Choose event:</label>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Choose here...
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Mental Health Event</a></li>
+                                        <li><a class="dropdown-item" href="#">HIV Awareness</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                    
+                                <label>Import file:</label>
+                                <input type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, .xlsm, .xlsb, .xltx"/>
+                                <button type="button" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    
+                        <div class="table-two" style="display: none;">
+                            <form class="create" action="post">
+                                <label>Event Name:</label>
+                                <input type="text" placeholder="Event Name">
+                    
+                                <label>Event Description:</label>
+                                <input type="text" placeholder="Event Description">
+                    
+                                <button type="button" class="btn btn-primary">Submit</button>
+                    
+                                <table id="example" class="display" style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Event Name</th>
+                                        <th>Details</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>System Architect</td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning">Edit</button>
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    <br>
+                    
+                </div>
+            </div>
+        </div>
+            
         </main>
         <!--Container Main end-->
 
@@ -166,5 +246,8 @@
         ></script>
         <script type="module" src="assets/jquery/jquery-3.7.1.min.js"></script>
         <script type="module" src="assets/boxicons/boxicons.js"></script>
+        <!-- Modal -->
+        <script type="module" src="modal.js"></script>
+
     </body>
 </html>
