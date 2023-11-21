@@ -6,9 +6,11 @@ export function setupDateSelectorEventListeners() {
     const test_total = document.getElementById("test-total");
 
     function test_setData() {
-        test_date.innerHTML = selectedYear.value;
-        test_total.innerHTML = selectedMonth.value;
+        // test_date.innerHTML = selectedYear.value;
+        // test_total.innerHTML = selectedMonth.value;
     }
+
+    function setTitle() {}
 
     if (selectedMonth) {
         selectedMonth.addEventListener("change", test_setData);

@@ -1,18 +1,41 @@
-<main class="main height-100 container">
-    <div class="row">
-        <section class="main-chart col-12">
-            <canvas></canvas>
-        </section>
+<main class="main height-100 container-xxl">
+    <div class="outline row">
+        <section class="outline main-chart-section col-lg-8">
+            <aside class="outline row">
+                <div class="outline col-6" id="card-chart-name">
+                    <div class="card-wrapper card shadow-sm text-center">
+                        <div class="card-body">
+                            <h5 class="card-title m-0">GENDER</h5>
+                        </div>
+                    </div>
+                </div>
 
-        <section class="side-wrapper col-12">
-            <aside class="row col-12">
-                <div class="col-6" id="test-date">DATE</div>
-                <div class="col-6" id="test-total">TOTAL</div>
+                <div class="outline col-6" id="card-date">
+                    <div class="card shadow-sm text-center">
+                        <div class="card-body">
+                            <h6
+                                classname="card-subtitle mb-2 text-body-secondary"
+                            >
+                                DATE
+                            </h6>
+                            <h5 classname="card-title">2023</h5>
+                            <p classname="card-text">JAN</p>
+                        </div>
+                    </div>
+                </div>
             </aside>
 
-            <div class="side-quarterly col-12">
-                <p>GENDER</p>
-                <canvas></canvas>
+            <div class="outline container-xxl">
+                <div class="main-chart-wrapper">
+                    <canvas id="main-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="outline side-wrapper col-lg-4">
+            <div class="outline" id="card-total">TOTAL</div>
+            <div class="outline side-quarterly">
+                <canvas id="side-chart-quarterly"></canvas>
             </div>
         </section>
     </div>
