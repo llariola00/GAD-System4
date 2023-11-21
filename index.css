@@ -38,6 +38,21 @@
     border-color: rgba(54, 162, 235, 1);
 }
 
+/* PARA SA MODAL SHESH */
+.create{
+    display: flex;
+    flex-direction: column;
+}
+.create input{
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+.create .btn-primary{
+    margin-top: 5px;
+    width: 20%;
+}
+
 /*    MEDIA QUERIES
  */
 
