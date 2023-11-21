@@ -9,6 +9,7 @@
         />
         <title>GAD Web System</title>
 
+
         <!-- Logo for the webpage tab -->
         <link
             rel="icon"
@@ -20,11 +21,12 @@
         <link rel="stylesheet" href="index.css" />
         <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css" />
         <link href="assets/boxicons/css/boxicons.min.css" rel="stylesheet" />
-        <!-- DATATABLE STYLE -->
-        <link
-            rel="stylesheet"
-            href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"
-        />
+        <link rel="stylesheet" href="./assets/modal/modal.css">
+        <!-- DATATABLE STYLE AND SCRIPTS -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
+        <script type="module" src="/assets/datatable/datatable.js"></script>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -221,7 +223,7 @@
                                     Submit
                                 </button>
 
-                                <table id="example" class="display">
+                                <table class="modal-table">
                                     <thead>
                                         <tr>
                                             <th>Event Name</th>
@@ -325,6 +327,122 @@
                     </div>
                 </section>
             </div>
+
+            <!-- DATATABLE SHESH STATIC -->
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Your dynamic data rows go here -->
+                    <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>Manila</td>
+                        <td>81</td>
+                        <td>2021-04-25</td>
+                        <td>$30,870</td>
+                    </tr>
+                    <tr>
+                        <td>Penguin Nixon</td>
+                        <td>System Architect</td>
+                        <td>Davao</td>
+                        <td>621</td>
+                        <td>2014-06-25</td>
+                        <td>$120,600</td>
+                    </tr>
+                    <tr>
+                        <td>Elephant Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2015-04-25</td>
+                        <td>$10,870</td>
+                    </tr>
+                    <tr>
+                        <td>Dog Nixon</td>
+                        <td>System Architect</td>
+                        <td>Davao</td>
+                        <td>61</td>
+                        <td>2011-04-25</td>
+                        <td>$320,800</td>
+                    </tr>
+                    <tr>
+                        <td>Cat Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2012-04-25</td>
+                        <td>$1,320,800</td>
+                    </tr>
+                    <tr>
+                        <td>Fish Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2013-04-25</td>
+                        <td>$760,890</td>
+                    </tr>
+                    <tr>
+                        <td>Buffalo Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2014-04-25</td>
+                        <td>$2,410,000</td>
+                    </tr>
+                    <tr>
+                        <td>Cheetah Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2015-04-25</td>
+                        <td>$720,800</td>
+                    </tr>
+                    <tr>
+                        <td>Worm Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2016-04-25</td>
+                        <td>$920,700</td>
+                    </tr>
+                    <tr>
+                        <td>Cow Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2022-04-25</td>
+                        <td>$260,500</td>
+                    </tr>
+                    <tr>
+                        <td>Goat Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2011-04-25</td>
+                        <td>$320,800</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                    
+                </tfoot>
+            </table>
         </main>
         <!--Container Main end-->
 
@@ -345,6 +463,6 @@
         <script type="module" src="assets/boxicons/boxicons.js"></script>
 
         <!-- Modal -->
-        <script type="module" src="modal.js"></script>
+        <script type="module" src="/assets/modal/modal.js"></script>
     </body>
 </html>
