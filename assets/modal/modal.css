@@ -1,0 +1,21 @@
+.dropdown{
+    margin: 5px 0;
+}
+/* PARA SA MODAL SHESH */
+.create{
+    display: flex;
+    flex-direction: column;
+}
+.create input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+.create .btn-primary{
+    margin-top: 5px;
+    width: 20%;
+}
+.create .description{
+    height: 150px;
+}
