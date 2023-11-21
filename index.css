@@ -9,9 +9,9 @@
 }
 
 .card-wrapper {
-    max-width: 20rem;
+    max-width: 18rem;
+    height: 4rem;
 }
-
 /*     DATE SELECTOR
  */
 .Attendance {
@@ -39,18 +39,26 @@
 }
 
 /* PARA SA MODAL SHESH */
-.create{
+.create {
     display: flex;
     flex-direction: column;
 }
-.create input{
+.create input {
     padding: 5px;
     border: 1px solid #ccc;
     margin: 5px 0;
 }
-.create .btn-primary{
+.create .btn-primary {
     margin-top: 5px;
     width: 20%;
+}
+
+.table-two {
+    display: none;
+}
+
+#example {
+    width: 100%;
 }
 
 /*    MEDIA QUERIES

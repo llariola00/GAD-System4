@@ -30,6 +30,7 @@ body {
     font-size: var(--normal-font-size) !important;
     transition: 0.5s;
 }
+.nav_link,
 a:link {
     text-decoration: none;
 }

@@ -2,12 +2,12 @@ export function setupDateSelectorEventListeners() {
     const selectedYear = document.getElementById("selectedYear");
     const selectedMonth = document.getElementById("selectedMonth");
 
-    const test_date = document.getElementById("test-date");
-    const test_total = document.getElementById("test-total");
+    const year = document.getElementById("card-year");
+    const month = document.getElementById("card-month");
 
     function test_setData() {
-        // test_date.innerHTML = selectedYear.value;
-        // test_total.innerHTML = selectedMonth.value;
+        year.innerHTML = selectedYear.value;
+        month.innerHTML = selectedMonth.value;
     }
 
     function setTitle() {}
