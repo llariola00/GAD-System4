@@ -1,10 +1,18 @@
 import { setupDateSelectorEventListeners } from "./dateSelector.js";
 
+function initializeDataTable() {
+    jQuery("#data-table").DataTable();
+    console.log("Data table initialized");
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
-    // ... existing code ...
+    // Data table
 
     // Call setupEventListeners when the page initially loads
     setupDateSelectorEventListeners();
+
+    // Initialize the data table
+    initializeDataTable();
 
     // Get all navigation links
     const navLinks = document.querySelectorAll(".nav_link");
@@ -14,6 +22,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // Add event listener to each link
     navLinks.forEach((link) => {
+        // If the link is the 'import' link, skip this iteration
+        if (link.id === "import") {
+            return;
+        }
+
         link.addEventListener("click", function (e) {
             // Prevent default action
             e.preventDefault();
@@ -36,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     // Call setupEventListeners after updating the main content
                     setupDateSelectorEventListeners();
+
+                    // Call initializeDataTable after updating the main content
+                    initializeDataTable();
                 });
         });
     });

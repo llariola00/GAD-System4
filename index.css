@@ -4,7 +4,7 @@
 }
 
 .main {
-    background-color: rgba(255, 199, 199, 0.637);
+    /* background-color: rgba(255, 199, 199, 0.637); */
     padding-top: calc(var(--header-height) + 0.25rem) !important;
 }
 
@@ -57,16 +57,20 @@
     display: none;
 }
 
-#example {
-    width: 100%;
+/*   DATA TABLE
+*/
+#data-table_wrapper {
 }
-
 /*    MEDIA QUERIES
  */
 
 @media screen and (min-width: 768px) {
     .main {
         padding-top: calc(var(--header-height) + 1.25rem) !important;
+    }
+
+    .main-wrapper {
+        height: calc(100vh - (var(--header-height) + 1.25rem));
     }
 }
 

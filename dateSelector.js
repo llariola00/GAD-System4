@@ -27,8 +27,13 @@ export function setupDateSelectorEventListeners() {
     }
 
     function setCardDate() {
-        year.innerHTML = selectedYear.value;
-        month.innerHTML = selectedMonth.value;
+        if (year && year.innerHTML) {
+            year.innerHTML = selectedYear.value;
+        }
+
+        if (month && month.innerHTML) {
+            month.innerHTML = selectedMonth.value;
+        }
     }
 
     function setTitle() {}

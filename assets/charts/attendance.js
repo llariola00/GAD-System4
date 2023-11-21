@@ -1,6 +1,10 @@
 export function attendanceChart(chartData, chartLabels) {
     const chartCanvas = document.getElementById("main-chart");
-    console.log("CANVAS_ELEMENT: ", chartCanvas);
+
+    // If the chart canvas doesn't exist, exit the function
+    if (!chartCanvas) {
+        return;
+    }
 
     const attendanceChart = new Chart(chartCanvas, {
         type: "bar",
