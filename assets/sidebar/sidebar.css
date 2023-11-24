@@ -1,8 +1,8 @@
 @font-face {
     font-family: "Nunito";
-    src: url(/assets/fonts/Nunito/Nunito-Regular.ttf),
-        url(/assets/fonts/Nunito/Nunito-SemiBold.ttf),
-        url(/assets/fonts/Nunito/Nunito-Bold.ttf);
+    src: url(../fonts/Nunito/Nunito-Regular.ttf),
+        url(../fonts/Nunito/Nunito-SemiBold.ttf),
+        url(../fonts/Nunito/Nunito-Bold.ttf);
     font-style: normal;
     font-weight: 400 600 700;
 }
@@ -26,10 +26,9 @@ body {
     position: relative;
     margin: var(--header-height) 0 0 0;
     padding: 0 1rem;
-    font-family: var(--body-font) !important;
-    font-size: var(--normal-font-size) !important;
     transition: 0.5s;
 }
+
 .nav_link,
 a:link {
     text-decoration: none;
@@ -47,6 +46,8 @@ a:link {
     background-color: var(--white-color);
     z-index: var(--z-fixed);
     transition: 0.5s;
+    font-family: var(--body-font) !important;
+    font-size: var(--normal-font-size) !important;
 }
 .header_toggle {
     color: var(--first-color);
@@ -74,6 +75,8 @@ a:link {
     padding: 0.5rem 1rem 0 0;
     transition: 0.5s;
     z-index: var(--z-fixed);
+    font-family: var(--body-font) !important;
+    font-size: 18px !important;
 }
 .nav {
     height: 100%;

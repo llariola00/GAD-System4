@@ -6,8 +6,6 @@ function initializeDataTable() {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    // Data table
-
     // Call setupEventListeners when the page initially loads
     setupDateSelectorEventListeners();
 

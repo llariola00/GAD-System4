@@ -1,4 +1,8 @@
-import { attendanceChart } from "./assets/charts/attendance.js";
+import {
+    attendanceChart,
+    attendanceYearlyChart,
+    attendanceQuarterlyChart,
+} from "./assets/charts/attendance.js";
 
 export function setupDateSelectorEventListeners() {
     const selectedYear = document.getElementById("selectedYear");
@@ -7,6 +11,7 @@ export function setupDateSelectorEventListeners() {
     const month = document.getElementById("card-month");
 
     const chartData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const chartDataQuarterly = [121, 211, 100, 150];
     const chartLabels = [
         "Jan",
         "Feb",
@@ -22,8 +27,16 @@ export function setupDateSelectorEventListeners() {
         "Dec",
     ];
 
-    function setAttendanceChart() {
+    function setAttendanceChart(chartData, chartLabels) {
         attendanceChart(chartData, chartLabels);
+    }
+
+    function setAttendanceYearlyChart(chartData, chartLabels) {
+        attendanceYearlyChart(chartData, chartLabels);
+    }
+
+    function setAttendanceQuarterlyChart(chartDataQuarterly) {
+        attendanceQuarterlyChart(chartDataQuarterly);
     }
 
     function setCardDate() {
@@ -47,7 +60,9 @@ export function setupDateSelectorEventListeners() {
         selectedYear.addEventListener("change", setAttendanceChart);
     }
 
-    // Call test_setData to set initial values
+    // Call Functions to set initial values
     setCardDate();
-    setAttendanceChart();
+    setAttendanceChart(chartData, chartLabels);
+    setAttendanceYearlyChart(chartData, chartLabels);
+    setAttendanceQuarterlyChart(chartDataQuarterly);
 }
