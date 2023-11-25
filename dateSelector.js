@@ -1,5 +1,5 @@
 import {
-    attendanceChart,
+    attendanceMonthlyChart,
     attendanceYearlyChart,
     attendanceQuarterlyChart,
 } from "./assets/charts/attendance.js";
@@ -27,8 +27,8 @@ export function setupDateSelectorEventListeners() {
         "Dec",
     ];
 
-    function setAttendanceChart(chartData, chartLabels) {
-        attendanceChart(chartData, chartLabels);
+    function setattendanceMonthlyChart(chartData, chartLabels) {
+        attendanceMonthlyChart(chartData, chartLabels);
     }
 
     function setAttendanceYearlyChart(chartData, chartLabels) {
@@ -57,12 +57,12 @@ export function setupDateSelectorEventListeners() {
 
     if (selectedYear) {
         selectedYear.addEventListener("change", setCardDate);
-        selectedYear.addEventListener("change", setAttendanceChart);
+        selectedYear.addEventListener("change", setattendanceMonthlyChart);
     }
 
     // Call Functions to set initial values
     setCardDate();
-    setAttendanceChart(chartData, chartLabels);
+    setattendanceMonthlyChart(chartData, chartLabels);
     setAttendanceYearlyChart(chartData, chartLabels);
     setAttendanceQuarterlyChart(chartDataQuarterly);
 }
