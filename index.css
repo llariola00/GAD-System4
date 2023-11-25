@@ -78,6 +78,7 @@
 @media screen and (min-width: 768px) {
     .main {
         padding-top: calc(var(--header-height) + 1.25rem) !important;
+        max-height: 100vh;
     }
 
     .main-wrapper {
@@ -85,7 +86,7 @@
     }
 
     .yearly-chart-wrapper {
-        min-height: 17.5rem;
+        min-height: 16.5rem;
     }
 
     .side-chart-wrapper {
@@ -99,6 +100,6 @@
 
 @media screen and (min-width: 992px) {
     .main-chart-wrapper {
-        min-height: 28rem;
+        min-height: 26rem;
     }
 }

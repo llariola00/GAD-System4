@@ -1,5 +1,5 @@
 // Export function to create the attendance main chart
-export function attendanceChart(chartData, chartLabels) {
+export function attendanceMonthlyChart(chartData, chartLabels) {
     const chartCanvas = document.getElementById("main-chart");
 
     // If the chart canvas doesn't exist, exit the function
@@ -7,7 +7,7 @@ export function attendanceChart(chartData, chartLabels) {
         return;
     }
 
-    const attendanceChart = new Chart(chartCanvas, {
+    const attendanceMonthlyChart = new Chart(chartCanvas, {
         type: "bar",
         data: {
             labels: chartLabels,
@@ -39,9 +39,10 @@ export function attendanceChart(chartData, chartLabels) {
         },
     });
 
-    attendanceChart.update();
+    attendanceMonthlyChart.update();
 }
 
+// Export function to create the yearly chart
 export function attendanceYearlyChart(chartData, chartLabels) {
     const chartCanvas = document.getElementById("yearly-chart");
 
