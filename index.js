@@ -1,4 +1,38 @@
 import { setupDateSelectorEventListeners } from "./dateSelector.js";
+import {
+    getAttendanceByQuarter,
+    getAttendanceByYear,
+    getAttendanceByMonth,
+} from "./assets/charts/dummyData.js";
+
+import { initializeAttendanceMonthlyChart } from "./assets/charts/attendance/attendanceMonthly.js";
+import { initializeAttendanceQuarterlyChart } from "./assets/charts/attendance/attendanceQuarterly.js";
+import { initializeAttendanceYearlyChart } from "./assets/charts/attendance/attendanceYearly.js";
+
+function initAttndCharts_ONLOAD() {
+    // Call setupEventListeners after updating the main content
+    setupDateSelectorEventListeners();
+
+    let attndY_DUMMYDATA = getAttendanceByYear();
+    console.log("dummyData: ", attndY_DUMMYDATA);
+
+    let attndM_DUMMYDATA = getAttendanceByMonth();
+    console.log("dummyData: ", attndM_DUMMYDATA);
+
+    let attndQ_DUMMYDATA = getAttendanceByQuarter();
+    console.log("dummyData: ", attndQ_DUMMYDATA);
+
+    initializeAttendanceYearlyChart(
+        attndY_DUMMYDATA.YEARLY_DATA,
+        attndY_DUMMYDATA.YEARLY_LABELS
+    );
+
+    initializeAttendanceMonthlyChart(
+        attndM_DUMMYDATA.MONTHLY_DATA,
+        attndM_DUMMYDATA.MONTHLY_LABELS
+    );
+    initializeAttendanceQuarterlyChart(attndQ_DUMMYDATA.QUARTERLY_DATA);
+}
 
 function initializeDataTable() {
     jQuery("#data-table").DataTable();
@@ -6,14 +40,10 @@ function initializeDataTable() {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    // Call setupEventListeners when the page initially loads
-    setupDateSelectorEventListeners();
+    initAttndCharts_ONLOAD();
 
-    // Get all navigation links
-    const navLinks = document.querySelectorAll(".nav_link");
-
-    // Get the main element
-    const mainElement = document.querySelector("main");
+    const navLinks = document.querySelectorAll(".nav_link"); // Get all navigation links
+    const mainElement = document.querySelector("main"); // Get the main element
 
     // Add event listener to each link
     navLinks.forEach((link) => {
@@ -45,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     if (link.id === "attendance") {
                         // Call setupEventListeners after updating the main content
                         setupDateSelectorEventListeners();
+                        initAttndCharts_ONLOAD();
                         console.log("Attendance link clicked");
                     }
                     if (link.id === "gender") {

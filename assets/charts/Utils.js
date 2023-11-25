@@ -68,3 +68,37 @@ const NAMED_COLORS = [
 export function namedColor(index) {
     return NAMED_COLORS[index % NAMED_COLORS.length];
 }
+
+export function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function numbers({ count, min, max }) {
+    let arr = [];
+    for (let i = 0; i < count; i++) {
+        arr.push(Math.floor(Math.random() * (max - min + 1) + min));
+    }
+    return arr;
+}
+
+export function randomStrings({ count, minLen, maxLen }) {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let strings = [];
+
+    for (let i = 0; i < count; i++) {
+        let str = "";
+        let strLen = Math.floor(Math.random() * (maxLen - minLen + 1) + minLen);
+
+        for (let j = 0; j < strLen; j++) {
+            str += characters.charAt(
+                Math.floor(Math.random() * characters.length)
+            );
+        }
+
+        strings.push(str);
+    }
+
+    return strings;
+}
