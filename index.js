@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // Call setupEventListeners when the page initially loads
     setupDateSelectorEventListeners();
 
-    // Initialize the data table
-    initializeDataTable();
-
     // Get all navigation links
     const navLinks = document.querySelectorAll(".nav_link");
 
@@ -45,11 +42,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     // Replace the content of the main element
                     mainElement.innerHTML = mainContent;
 
-                    // Call setupEventListeners after updating the main content
-                    setupDateSelectorEventListeners();
-
-                    // Call initializeDataTable after updating the main content
-                    initializeDataTable();
+                    if (link.id === "attendance") {
+                        // Call setupEventListeners after updating the main content
+                        setupDateSelectorEventListeners();
+                        console.log("Attendance link clicked");
+                    }
+                    if (link.id === "gender") {
+                        // Call setupEventListeners after updating the main content
+                        setupDateSelectorEventListeners();
+                        console.log("gender link clicked");
+                    }
+                    if (link.id === "events") {
+                        // Call setupEventListeners after updating the main content
+                        setupDateSelectorEventListeners();
+                        console.log("events link clicked");
+                    }
+                    if (link.id === "logs") {
+                        // Call initializeDataTable after updating the main content
+                        initializeDataTable();
+                        console.log("logs link clicked");
+                    }
                 });
         });
     });
