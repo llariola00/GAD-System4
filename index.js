@@ -66,11 +66,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         "text/html"
                     );
 
-                    // Get the main content from the fetched HTML
-                    const mainContent = tempDom.querySelector("main").innerHTML;
+                    const mainContent = tempDom.querySelector("main").innerHTML; // Get the main content from the fetched HTML
+                    mainElement.innerHTML = mainContent; // Replace the content of the main element
 
-                    // Replace the content of the main element
-                    mainElement.innerHTML = mainContent;
+                    try {
+                        // Get the dateSelector content from the fetched HTML
+                        const dateSelectorContent =
+                            tempDom.querySelector("#dateSelector").innerHTML;
+                        // Get the dateSelector element in the current page
+                        const dateSelectorElement =
+                            document.querySelector("#dateSelector");
+                        // Replace the content of the dateSelector element
+                        dateSelectorElement.innerHTML = dateSelectorContent;
+                    } catch (error) {
+                        console.log("ERROR: Loading dateSelector: ", error);
+                    }
 
                     if (link.id === "attendance") {
                         // Call setupEventListeners after updating the main content

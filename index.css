@@ -39,9 +39,8 @@
     min-height: 10rem;
 }
 
-.dateSelector_attendance {
-    min-width: 38rem;
-    outline: #adb5bd solid 1px;
+#dateSelector {
+    outline: var(--first-color) solid 1px;
 }
 
 .dateSelector_attendance #btnSubmit:hover {
