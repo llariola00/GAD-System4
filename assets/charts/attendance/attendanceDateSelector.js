@@ -1,13 +1,8 @@
-import {
-    months,
-    numbers,
-    getRandomInt,
-    randomStrings,
-} from "./assets/charts/Utils.js";
+import { months, numbers, getRandomInt, randomStrings } from "../Utils.js";
 
-import { attendanceMonthly } from "./assets/charts/attendance/attendanceMonthly.js";
-import { attendanceYearly } from "./assets/charts/attendance/attendanceYearly.js";
-import { attendanceQuarterly } from "./assets/charts/attendance/attendanceQuarterly.js";
+import { attendanceMonthly } from "./attendanceMonthly.js";
+import { attendanceYearly } from "./attendanceYearly.js";
+import { attendanceQuarterly } from "./attendanceQuarterly.js";
 
 const selectedYear = document.getElementById("selectedYear");
 const selectedMonth = document.getElementById("selectedMonth");
@@ -20,7 +15,7 @@ let chartLabels = months({ count: 12 });
 // console.log("chartLabels", chartLabels);
 // console.log("chartDataQuarterly", chartDataQuarterly);
 
-export function setupDateSelectorEventListeners() {
+export function setupAttendanceEventListeners() {
     if (selectedMonth) {
         selectedMonth.addEventListener("change", setCardDate);
         selectedMonth.addEventListener("change", setAttendanceMonthlyChart);

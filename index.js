@@ -1,4 +1,4 @@
-import { setupDateSelectorEventListeners } from "./dateSelector.js";
+import { setupAttendanceEventListeners } from "./assets/charts/attendance/attendanceDateSelector.js";
 import {
     getAttendanceByQuarter,
     getAttendanceByYear,
@@ -11,7 +11,7 @@ import { initializeAttendanceYearlyChart } from "./assets/charts/attendance/atte
 
 function initAttndCharts_ONLOAD() {
     // Call setupEventListeners after updating the main content
-    setupDateSelectorEventListeners();
+    setupAttendanceEventListeners();
 
     let attndY_DUMMYDATA = getAttendanceByYear();
     console.log("dummyData: ", attndY_DUMMYDATA);
@@ -84,18 +84,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     if (link.id === "attendance") {
                         // Call setupEventListeners after updating the main content
-                        setupDateSelectorEventListeners();
+                        setupAttendanceEventListeners();
                         initAttndCharts_ONLOAD();
                         console.log("Attendance link clicked");
                     }
                     if (link.id === "gender") {
                         // Call setupEventListeners after updating the main content
-                        setupDateSelectorEventListeners();
+
                         console.log("gender link clicked");
                     }
                     if (link.id === "events") {
                         // Call setupEventListeners after updating the main content
-                        setupDateSelectorEventListeners();
+
                         console.log("events link clicked");
                     }
                     if (link.id === "logs") {
