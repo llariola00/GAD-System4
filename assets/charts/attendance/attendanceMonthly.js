@@ -19,10 +19,10 @@ export function initializeAttendanceMonthlyChart(chartData, chartLabels) {
             datasets: [
                 {
                     label: "Attendance",
-                    backgroundColor: "rgba(54, 162, 235, 1)",
+                    backgroundColor: "rgba(0, 98, 255, 0.9)",
                     borderWidth: 0,
-                    borderColor: "rgba(54, 162, 235, 0.8)",
-                    hoverBackgroundColor: "rgba(54, 162, 235, 0.6)",
+                    borderColor: "rgba(0, 98, 255, 0.5)",
+                    hoverBackgroundColor: "rgba(0, 98, 255, 0.4)",
                     hoverBorderWidth: 3,
                     borderRadius: 15,
                     data: AttendanceMonthlyData,

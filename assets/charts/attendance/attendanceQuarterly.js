@@ -21,9 +21,9 @@ export function initializeAttendanceQuarterlyChart(chartData) {
                 {
                     label: "Attendance",
                     borderWidth: 0,
-                    backgroundColor: "rgba(75,192,192,0.6)",
-                    borderColor: "rgba(75,192,192,1)",
-                    hoverBackgroundColor: "rgba(75,192,192,1)",
+                    backgroundColor: "rgba(160, 106, 255, 0.9)",
+                    borderColor: "rgba(160, 106, 255, 0.5)",
+                    hoverBackgroundColor: "rgba(160, 106, 255, 0.4)",
                     hoverBorderWidth: 3,
                     borderRadius: 5,
                     data: attendanceQuarterlyData,
