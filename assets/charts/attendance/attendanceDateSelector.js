@@ -1,21 +1,30 @@
 import { months, numbers, getRandomInt, randomStrings } from "../Utils.js";
+import {
+    getAttendanceByQuarter,
+    getAttendanceByYear,
+    getAttendanceByMonth,
+} from "../dummyData.js";
 
 import { attendanceMonthly } from "./attendanceMonthly.js";
 import { attendanceYearly } from "./attendanceYearly.js";
 import { attendanceQuarterly } from "./attendanceQuarterly.js";
 
-const selectedYear = document.getElementById("selectedYear");
-const selectedMonth = document.getElementById("selectedMonth");
-const year = document.getElementById("card-year");
-const month = document.getElementById("card-month");
+export let selectedYear = document.getElementById("selectedYear");
+export let selectedMonth = document.getElementById("selectedMonth");
+let year = document.getElementById("card-year");
+let month = document.getElementById("card-month");
 
-let chartLabels = months({ count: 12 });
-
-// console.log("chartData", chartData);
-// console.log("chartLabels", chartLabels);
-// console.log("chartDataQuarterly", chartDataQuarterly);
+function getDateSelectorElements() {
+    selectedYear = document.getElementById("selectedYear");
+    selectedMonth = document.getElementById("selectedMonth");
+    year = document.getElementById("card-year");
+    month = document.getElementById("card-month");
+}
 
 export function setupAttendanceEventListeners() {
+    // re initialize the date selector elements
+    getDateSelectorElements();
+
     if (selectedMonth) {
         selectedMonth.addEventListener("change", setCardDate);
         selectedMonth.addEventListener("change", setAttendanceMonthlyChart);
@@ -32,23 +41,26 @@ export function setupAttendanceEventListeners() {
 }
 
 function setAttendanceYearlyChart() {
-    const newData = numbers({ count: 12, min: 100, max: 350 });
-    attendanceYearly(newData, chartLabels);
+    let newData = getAttendanceByYear(selectedYear);
+    attendanceYearly(
+        newData.YEARLY_DATA,
+        newData.YEARLY_LABELS,
+        newData.YEARLY_TITLE
+    );
 }
 
 function setAttendanceMonthlyChart() {
-    const newData = numbers({ count: 12, min: 5, max: 100 });
-    const newLabels = randomStrings({
-        count: getRandomInt(2, 15),
-        minLen: 3,
-        maxLen: 10,
-    });
-    attendanceMonthly(newData, newLabels);
+    let newData = getAttendanceByMonth(selectedYear, selectedMonth);
+    attendanceMonthly(
+        newData.MONTHLY_DATA,
+        newData.MONTHLY_LABELS,
+        newData.MONTHLY_TITLE
+    );
 }
 
 function setAttendanceQuarterlyChart() {
-    const newData = numbers({ count: 4, min: 20, max: 500 });
-    attendanceQuarterly(newData);
+    let newData = getAttendanceByQuarter(selectedYear);
+    attendanceQuarterly(newData.QUARTERLY_DATA, newData.QUARTERLY_TITLE);
 }
 
 function setCardDate() {

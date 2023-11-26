@@ -4,7 +4,11 @@ let attendanceMonthlyChart;
 let AttendanceMonthlyData = [];
 let AttendanceMonthlyLabels = [];
 
-export function initializeAttendanceMonthlyChart(chartData, chartLabels) {
+export function initializeAttendanceMonthlyChart(
+    chartData,
+    chartLabels,
+    chartTitle
+) {
     monthlyChartCanvas = document.getElementById("main-chart");
 
     // If the chart canvas doesn't exist, exit the function
@@ -33,24 +37,64 @@ export function initializeAttendanceMonthlyChart(chartData, chartLabels) {
             responsive: true,
             maintainAspectRatio: false,
             scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: "Events",
+                        font: {
+                            family: "Nunito",
+                            size: 18,
+                            weight: 500,
+                        },
+                        padding: { top: 10, left: 0, right: 0, bottom: 0 },
+                    },
+                },
                 y: {
                     beginAtZero: true,
+                    display: true,
+                    title: {
+                        display: true,
+                        text: "Count",
+                        font: {
+                            family: "Nunito",
+                            size: 18,
+                            weight: 500,
+                        },
+                        padding: { top: 0, left: 0, right: 0, bottom: 0 },
+                    },
                 },
             },
             layout: {
                 padding: 20,
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Monthly",
+                    font: {
+                        family: "Nunito",
+                        size: 20,
+                        weight: 600,
+                    },
+                    padding: { top: 0, left: 0, right: 0, bottom: 10 },
+                },
+                legend: {
+                    display: false,
+                },
             },
         },
     });
 
     attendanceMonthlyChart.data.datasets[0].data = chartData;
     attendanceMonthlyChart.data.labels = chartLabels;
+    attendanceMonthlyChart.options.plugins.title.text = chartTitle;
     attendanceMonthlyChart.update();
     console.log("Attendance MONTHLY chart INITIALIZED!!!");
 }
 
 // Export function to create the attendance main chart
-export function attendanceMonthly(chartData, chartLabels) {
+export function attendanceMonthly(chartData, chartLabels, chartTitle) {
     if (!chartData) {
         console.log("Attendance Monthly: Passed chart data is undefined");
         return;
@@ -66,6 +110,7 @@ export function attendanceMonthly(chartData, chartLabels) {
 
     attendanceMonthlyChart.data.datasets[0].data = chartData;
     attendanceMonthlyChart.data.labels = chartLabels;
+    attendanceMonthlyChart.options.plugins.title.text = chartTitle;
     attendanceMonthlyChart.update();
     console.log("Attendance MONTHLY chart updated");
 }

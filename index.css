@@ -1,7 +1,7 @@
 @import url("./assets/sidebar/sidebar.css");
 
 @font-face {
-    font-family: "Popins";
+    font-family: "Poppins";
     src: url(./assets/fonts/Poppins/Poppins-Regular.ttf),
         url(./assets/fonts/Poppins/Poppins-SemiBold.ttf),
         url(./assets/fonts/Poppins/Poppins-Bold.ttf);
@@ -85,11 +85,11 @@
     }
 
     .yearly-chart-wrapper {
-        min-height: 16.5rem;
+        min-height: 17rem;
     }
 
     .side-chart-wrapper {
-        min-height: 15rem;
+        min-height: 16rem;
     }
 
     .card-info-height {
@@ -99,6 +99,6 @@
 
 @media screen and (min-width: 992px) {
     .main-chart-wrapper {
-        min-height: 26rem;
+        min-height: 28rem;
     }
 }

@@ -1,4 +1,9 @@
-import { setupAttendanceEventListeners } from "./assets/charts/attendance/attendanceDateSelector.js";
+import {
+    setupAttendanceEventListeners,
+    selectedYear as attndSelectedYear,
+    selectedMonth as attndSelectedMonth,
+} from "./assets/charts/attendance/attendanceDateSelector.js";
+
 import {
     getAttendanceByQuarter,
     getAttendanceByYear,
@@ -13,25 +18,33 @@ function initAttndCharts_ONLOAD() {
     // Call setupEventListeners after updating the main content
     setupAttendanceEventListeners();
 
-    let attndY_DUMMYDATA = getAttendanceByYear();
+    let attndY_DUMMYDATA = getAttendanceByYear(attndSelectedYear);
     console.log("dummyData: ", attndY_DUMMYDATA);
 
-    let attndM_DUMMYDATA = getAttendanceByMonth();
+    let attndM_DUMMYDATA = getAttendanceByMonth(
+        attndSelectedYear,
+        attndSelectedMonth
+    );
     console.log("dummyData: ", attndM_DUMMYDATA);
 
-    let attndQ_DUMMYDATA = getAttendanceByQuarter();
+    let attndQ_DUMMYDATA = getAttendanceByQuarter(attndSelectedYear);
     console.log("dummyData: ", attndQ_DUMMYDATA);
 
     initializeAttendanceYearlyChart(
         attndY_DUMMYDATA.YEARLY_DATA,
-        attndY_DUMMYDATA.YEARLY_LABELS
+        attndY_DUMMYDATA.YEARLY_LABELS,
+        attndY_DUMMYDATA.YEARLY_TITLE
     );
 
     initializeAttendanceMonthlyChart(
         attndM_DUMMYDATA.MONTHLY_DATA,
-        attndM_DUMMYDATA.MONTHLY_LABELS
+        attndM_DUMMYDATA.MONTHLY_LABELS,
+        attndM_DUMMYDATA.MONTHLY_TITLE
     );
-    initializeAttendanceQuarterlyChart(attndQ_DUMMYDATA.QUARTERLY_DATA);
+    initializeAttendanceQuarterlyChart(
+        attndQ_DUMMYDATA.QUARTERLY_DATA,
+        attndQ_DUMMYDATA.QUARTERLY_TITLE
+    );
 }
 
 function initializeDataTable() {
@@ -80,11 +93,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         dateSelectorElement.innerHTML = dateSelectorContent;
                     } catch (error) {
                         console.log("ERROR: Loading dateSelector: ", error);
+                        console.log(
+                            "If called when trying to load logs page, its because logs.html doesnt have a dateSelector element"
+                        );
                     }
 
                     if (link.id === "attendance") {
-                        // Call setupEventListeners after updating the main content
-                        setupAttendanceEventListeners();
                         initAttndCharts_ONLOAD();
                         console.log("Attendance link clicked");
                     }
