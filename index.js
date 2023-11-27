@@ -1,19 +1,35 @@
 import {
+    getAttendanceByQuarter,
+    getAttendanceByYear,
+    getAttendanceByMonth,
+    getEventByMonth,
+    getEventByQuarter,
+} from "./assets/charts/getChartData.js";
+
+//
+// ATTENDANCE CHARTS IMPORTS
+import {
     setupAttendanceEventListeners,
     selectedYear as attndSelectedYear,
     selectedMonth as attndSelectedMonth,
 } from "./assets/charts/attendance/attendanceDateSelector.js";
 
-import {
-    getAttendanceByQuarter,
-    getAttendanceByYear,
-    getAttendanceByMonth,
-} from "./assets/charts/dummyData.js";
-
 import { initializeAttendanceMonthlyChart } from "./assets/charts/attendance/attendanceMonthly.js";
 import { initializeAttendanceQuarterlyChart } from "./assets/charts/attendance/attendanceQuarterly.js";
 import { initializeAttendanceYearlyChart } from "./assets/charts/attendance/attendanceYearly.js";
 
+//
+// EVENT CHARTS IMPORTS
+import {
+    setupEventChartsListeners,
+    selectedYear as eventSelectedMonth,
+    selectedMonth as eventSelectedYear,
+} from "./assets/charts/eventsChart/eventDateSelector.js";
+
+import { initializeEventMonthlyChart } from "./assets/charts/eventsChart/eventMonthly.js";
+import { initializeEventQuarterlyChart } from "./assets/charts/eventsChart/eventQuarterly.js";
+//
+// ATTENDANCE CHART FUNCTIONS
 function initAttndCharts_ONLOAD() {
     // Call setupEventListeners after updating the main content
     setupAttendanceEventListeners();
@@ -44,6 +60,40 @@ function initAttndCharts_ONLOAD() {
     initializeAttendanceQuarterlyChart(
         attndQ_DUMMYDATA.QUARTERLY_DATA,
         attndQ_DUMMYDATA.QUARTERLY_TITLE
+    );
+}
+
+//
+// EVENT CHART FUNCTIONS
+function initEventCharts_ONLOAD() {
+    setupEventChartsListeners();
+
+    // let eventY_DUMMYDATA = getAttendanceByYear(attndSelectedYear);
+    // console.log("dummyData: ", attndY_DUMMYDATA);
+
+    let eventM_DUMMYDATA = getEventByMonth(
+        eventSelectedYear,
+        eventSelectedMonth
+    );
+    console.log("Event dummyData: ", eventM_DUMMYDATA);
+
+    let eventQ_DUMMYDATA = getEventByQuarter(eventSelectedYear);
+    console.log("Event dummyData: ", eventQ_DUMMYDATA);
+
+    // initializeAttendanceYearlyChart(
+    //     attndY_DUMMYDATA.YEARLY_DATA,
+    //     attndY_DUMMYDATA.YEARLY_LABELS,
+    //     attndY_DUMMYDATA.YEARLY_TITLE
+    // );
+
+    initializeEventMonthlyChart(
+        eventM_DUMMYDATA.MONTHLY_DATA,
+        eventM_DUMMYDATA.MONTHLY_LABELS,
+        eventM_DUMMYDATA.MONTHLY_TITLE
+    );
+    initializeEventQuarterlyChart(
+        eventQ_DUMMYDATA.QUARTERLY_DATA,
+        eventQ_DUMMYDATA.QUARTERLY_TITLE
     );
 }
 
@@ -82,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     const mainContent = tempDom.querySelector("main").innerHTML; // Get the main content from the fetched HTML
                     mainElement.innerHTML = mainContent; // Replace the content of the main element
 
+                    // DATE SELECTOR
                     try {
                         // Get the dateSelector content from the fetched HTML
                         const dateSelectorContent =
@@ -98,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         );
                     }
 
+                    // LOAD DIFFERENT CONTENT BASED ON THE LINK CLICKED
                     if (link.id === "attendance") {
                         initAttndCharts_ONLOAD();
                         console.log("Attendance link clicked");
@@ -109,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     }
                     if (link.id === "events") {
                         // Call setupEventListeners after updating the main content
-
+                        initEventCharts_ONLOAD();
                         console.log("events link clicked");
                     }
                     if (link.id === "logs") {

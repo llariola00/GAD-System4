@@ -1,10 +1,7 @@
 let monthlyChartCanvas = document.getElementById("main-chart");
-let attendanceMonthlyChart;
+let eventMonthlyChart;
 
-let AttendanceMonthlyData = [];
-let AttendanceMonthlyLabels = [];
-
-export function initializeAttendanceMonthlyChart(
+export function initializeEventMonthlyChart(
     chartData,
     chartLabels,
     chartTitle
@@ -16,20 +13,20 @@ export function initializeAttendanceMonthlyChart(
         return;
     }
 
-    attendanceMonthlyChart = new Chart(monthlyChartCanvas, {
+    eventMonthlyChart = new Chart(monthlyChartCanvas, {
         type: "bar",
         data: {
-            labels: AttendanceMonthlyLabels,
+            labels: [],
             datasets: [
                 {
-                    label: "Attendance",
-                    backgroundColor: "rgba(0, 98, 255, 0.9)",
+                    label: "Events",
+                    backgroundColor: "rgba(255,204,79, 0.9)",
                     borderWidth: 0,
-                    borderColor: "rgba(0, 98, 255, 0.5)",
-                    hoverBackgroundColor: "rgba(0, 98, 255, 0.4)",
+                    borderColor: "rgba(255,204,79, 0.5)",
+                    hoverBackgroundColor: "rgba(255,204,79, 0.4)",
                     hoverBorderWidth: 3,
                     borderRadius: 15,
-                    data: AttendanceMonthlyData,
+                    data: [],
                 },
             ],
         },
@@ -41,7 +38,7 @@ export function initializeAttendanceMonthlyChart(
                     display: true,
                     title: {
                         display: true,
-                        text: "Events",
+                        text: "Months",
                         font: {
                             family: "Nunito",
                             size: 18,
@@ -55,7 +52,7 @@ export function initializeAttendanceMonthlyChart(
                     display: true,
                     title: {
                         display: true,
-                        text: "Attendance Count",
+                        text: "Event Count",
                         font: {
                             family: "Nunito",
                             size: 18,
@@ -86,31 +83,31 @@ export function initializeAttendanceMonthlyChart(
         },
     });
 
-    attendanceMonthlyChart.data.datasets[0].data = chartData;
-    attendanceMonthlyChart.data.labels = chartLabels;
-    attendanceMonthlyChart.options.plugins.title.text = chartTitle;
-    attendanceMonthlyChart.update();
-    console.log("Attendance MONTHLY chart INITIALIZED!!!");
+    eventMonthlyChart.data.datasets[0].data = chartData;
+    eventMonthlyChart.data.labels = chartLabels;
+    eventMonthlyChart.options.plugins.title.text = chartTitle;
+    eventMonthlyChart.update();
+    console.log("Events MONTHLY chart INITIALIZED!!!");
 }
 
-// Export function to create the attendance main chart
-export function attendanceMonthly(chartData, chartLabels, chartTitle) {
+// Export function to create the Events main chart
+export function eventsMonthly(chartData, chartLabels, chartTitle) {
     if (!chartData) {
-        console.log("Attendance Monthly: Passed chart data is undefined");
+        console.log("Events Monthly: Passed chart data is undefined");
         return;
     }
     if (!chartLabels) {
-        console.log("Attendance Monthly: Passed chart labels is undefined");
+        console.log("Events Monthly: Passed chart labels is undefined");
         return;
     }
-    if (!attendanceMonthlyChart) {
-        console.log("Attendance MONTHLY chart not initialized!!!");
+    if (!eventMonthlyChart) {
+        console.log("Events MONTHLY chart not initialized!!!");
         return;
     }
 
-    attendanceMonthlyChart.data.datasets[0].data = chartData;
-    attendanceMonthlyChart.data.labels = chartLabels;
-    attendanceMonthlyChart.options.plugins.title.text = chartTitle;
-    attendanceMonthlyChart.update();
-    console.log("Attendance MONTHLY chart updated");
+    eventMonthlyChart.data.datasets[0].data = chartData;
+    eventMonthlyChart.data.labels = chartLabels;
+    eventMonthlyChart.options.plugins.title.text = chartTitle;
+    eventMonthlyChart.update();
+    console.log("Events MONTHLY chart updated");
 }

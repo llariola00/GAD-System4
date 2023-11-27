@@ -1,9 +1,8 @@
-import { months, numbers, getRandomInt, randomStrings } from "../Utils.js";
 import {
     getAttendanceByQuarter,
     getAttendanceByYear,
     getAttendanceByMonth,
-} from "../dummyData.js";
+} from "../getChartData.js";
 
 import { attendanceMonthly } from "./attendanceMonthly.js";
 import { attendanceYearly } from "./attendanceYearly.js";
