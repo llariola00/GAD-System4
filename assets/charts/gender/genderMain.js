@@ -159,6 +159,7 @@ export function genderYearly(
     genderMainChart.data.datasets[2].data = PreferNotToSayData;
     genderMainChart.data.labels = chartLabels;
     genderMainChart.options.plugins.title.text = chartTitle;
+    genderMainChart.options.scales.x.title.text = "Months";
     genderMainChart.update();
     console.log("gender YEARLY chart updated");
 }
@@ -191,6 +192,7 @@ export function genderMonthly(
     genderMainChart.data.datasets[2].data = PreferNotToSayData;
     genderMainChart.data.labels = chartLabels;
     genderMainChart.options.plugins.title.text = chartTitle;
+    genderMainChart.options.scales.x.title.text = "Events";
     genderMainChart.update();
     console.log("gender MONTHLY chart updated");
 }
