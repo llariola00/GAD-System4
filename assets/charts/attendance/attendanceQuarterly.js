@@ -88,11 +88,11 @@ export function initializeAttendanceQuarterlyChart(chartData, chartTitle) {
 
 export function attendanceQuarterly(chartData, chartTitle) {
     if (!chartData) {
-        console.log("Attendance Yearly: Passed chart data is undefined");
+        console.log("Attendance QUARTERLY: Passed chart data is undefined");
         return;
     }
     if (!chartTitle) {
-        console.log("Attendance Yearly: Passed chart title is undefined");
+        console.log("Attendance QUARTERLY: Passed chart title is undefined");
         return;
     }
     if (!attendanceQuarterlyChart) {
