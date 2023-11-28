@@ -2,6 +2,10 @@ import {
     getAttendanceByQuarter,
     getAttendanceByYear,
     getAttendanceByMonth,
+    getGenderByYear,
+    getGenderByQuarter,
+    getGenderByYearTotal,
+    getGenderByMonthTotal,
     getEventByMonth,
     getEventByQuarter,
 } from "./assets/charts/getChartData.js";
@@ -19,15 +23,27 @@ import { initializeAttendanceQuarterlyChart } from "./assets/charts/attendance/a
 import { initializeAttendanceYearlyChart } from "./assets/charts/attendance/attendanceYearly.js";
 
 //
+// GENDER CHARTS IMPORTS
+import {
+    setupGenderEventListeners,
+    selectedYear as genderSelectedYear,
+    selectedMonth as genderSelectedMonth,
+} from "./assets/charts/gender/genderDateSelector.js";
+
+import { initializeGenderMainChart } from "./assets/charts/gender/genderMain.js";
+import { initializeGenderQuarterlyChart } from "./assets/charts/gender/genderQuarterly.js";
+
+//
 // EVENT CHARTS IMPORTS
 import {
     setupEventChartsListeners,
-    selectedYear as eventSelectedMonth,
-    selectedMonth as eventSelectedYear,
+    selectedMonth as eventSelectedMonth,
+    selectedYear as eventSelectedYear,
 } from "./assets/charts/eventsChart/eventDateSelector.js";
 
 import { initializeEventMonthlyChart } from "./assets/charts/eventsChart/eventMonthly.js";
 import { initializeEventQuarterlyChart } from "./assets/charts/eventsChart/eventQuarterly.js";
+import { initializeGenderTotalChart } from "./assets/charts/gender/genderTotal.js";
 //
 // ATTENDANCE CHART FUNCTIONS
 function initAttndCharts_ONLOAD() {
@@ -35,16 +51,13 @@ function initAttndCharts_ONLOAD() {
     setupAttendanceEventListeners();
 
     let attndY_DUMMYDATA = getAttendanceByYear(attndSelectedYear);
-    console.log("dummyData: ", attndY_DUMMYDATA);
 
     let attndM_DUMMYDATA = getAttendanceByMonth(
         attndSelectedYear,
         attndSelectedMonth
     );
-    console.log("dummyData: ", attndM_DUMMYDATA);
 
     let attndQ_DUMMYDATA = getAttendanceByQuarter(attndSelectedYear);
-    console.log("dummyData: ", attndQ_DUMMYDATA);
 
     initializeAttendanceYearlyChart(
         attndY_DUMMYDATA.YEARLY_DATA,
@@ -64,6 +77,36 @@ function initAttndCharts_ONLOAD() {
 }
 
 //
+// GENDER CHART FUNCTIONS
+function initGenderCharts_ONLOAD() {
+    setupGenderEventListeners();
+
+    let genderY_DUMMYDATA = getGenderByYear(genderSelectedYear);
+    let genderQ_DUMMYDATA = getGenderByQuarter(genderSelectedYear);
+    let genderY_TOTAL_DUMMYDATA = getGenderByYearTotal(genderSelectedYear);
+
+    initializeGenderMainChart(
+        genderY_DUMMYDATA.YEARLY_MALE,
+        genderY_DUMMYDATA.YEARLY_FEMALE,
+        genderY_DUMMYDATA.YEARLY_PREFERNOTTOSAY,
+        genderY_DUMMYDATA.YEARLY_LABELS,
+        genderY_DUMMYDATA.YEARLY_TITLE
+    );
+
+    initializeGenderQuarterlyChart(
+        genderQ_DUMMYDATA.QUARTERLY_MALE,
+        genderQ_DUMMYDATA.QUARTERLY_FEMALE,
+        genderQ_DUMMYDATA.QUARTERLY_PREFERNOTTOSAY,
+        genderQ_DUMMYDATA.QUARTERLY_TITLE
+    );
+
+    initializeGenderTotalChart(
+        genderY_TOTAL_DUMMYDATA.YEARLY_DATA,
+        genderY_TOTAL_DUMMYDATA.YEARLY_TITLE
+    );
+}
+
+//
 // EVENT CHART FUNCTIONS
 function initEventCharts_ONLOAD() {
     setupEventChartsListeners();
@@ -75,10 +118,8 @@ function initEventCharts_ONLOAD() {
         eventSelectedYear,
         eventSelectedMonth
     );
-    console.log("Event dummyData: ", eventM_DUMMYDATA);
 
     let eventQ_DUMMYDATA = getEventByQuarter(eventSelectedYear);
-    console.log("Event dummyData: ", eventQ_DUMMYDATA);
 
     // initializeAttendanceYearlyChart(
     //     attndY_DUMMYDATA.YEARLY_DATA,
@@ -156,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     }
                     if (link.id === "gender") {
                         // Call setupEventListeners after updating the main content
-
+                        initGenderCharts_ONLOAD();
                         console.log("gender link clicked");
                     }
                     if (link.id === "events") {

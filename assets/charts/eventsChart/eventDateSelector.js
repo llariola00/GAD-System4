@@ -1,19 +1,25 @@
-import { getEventByMonth, getEventByQuarter } from "../getChartData.js";
+import {
+    getEventByMonth,
+    getEventByQuarter,
+    getEventByYearTotal,
+} from "../getChartData.js";
 
 import { eventsMonthly } from "./eventMonthly.js";
 import { eventsQuarterly } from "./eventQuarterly.js";
 
 export let selectedYear = document.getElementById("selectedYear");
 export let selectedMonth = document.getElementById("selectedMonth");
+
 let year = document.getElementById("card-year");
 let month = document.getElementById("card-month");
-
+let yearlyTotal = document.getElementById("card-yearly-total");
 console.log("selectedYear: ", selectedYear.value);
 function getDateSelectorElements() {
     selectedYear = document.getElementById("selectedYear");
     selectedMonth = document.getElementById("selectedMonth");
     year = document.getElementById("card-year");
     month = document.getElementById("card-month");
+    yearlyTotal = document.getElementById("card-yearly-total");
 }
 
 export function setupEventChartsListeners() {
@@ -27,12 +33,13 @@ export function setupEventChartsListeners() {
     if (selectedYear) {
         selectedYear.addEventListener("change", setCardDate);
         selectedYear.addEventListener("change", setEventMonthlyChart);
-        // selectedYear.addEventListener("change", setEventYearlyChart);
+        selectedYear.addEventListener("change", setCardYearlyTotal);
         selectedYear.addEventListener("change", setEventQuarterlyChart);
     }
 
     // Call Functions to set initial values
     setCardDate();
+    setCardYearlyTotal();
 }
 
 // function setEventYearlyChart() {
@@ -65,5 +72,12 @@ function setCardDate() {
 
     if (month && month.innerHTML) {
         month.innerHTML = selectedMonth.value;
+    }
+}
+
+function setCardYearlyTotal() {
+    if (yearlyTotal && yearlyTotal.innerHTML) {
+        let newData = getEventByYearTotal(selectedYear);
+        yearlyTotal.innerHTML = newData.YEARLY_TOTAL_DATA;
     }
 }

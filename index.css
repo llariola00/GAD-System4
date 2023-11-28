@@ -43,11 +43,6 @@
     outline: var(--first-color) solid 1px;
 }
 
-.dateSelector_attendance #btnSubmit:hover {
-    background-color: rgba(54, 162, 235, 0.6);
-    border-color: rgba(54, 162, 235, 1);
-}
-
 /* PARA SA MODAL SHESH */
 .create {
     display: flex;
@@ -69,8 +64,7 @@
 
 /*   DATA TABLE
 */
-#data-table_wrapper {
-}
+
 /*    MEDIA QUERIES
  */
 
@@ -86,6 +80,7 @@
 
     .yearly-chart-wrapper {
         min-height: 17rem;
+        max-height: 18rem;
     }
 
     .side-chart-wrapper {

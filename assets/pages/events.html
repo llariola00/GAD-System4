@@ -95,9 +95,14 @@
                                 <h6
                                     class="card-subtitle mb-2 text-body-secondary"
                                 >
-                                    TOTAL
+                                    YEARLY TOTAL
                                 </h6>
-                                <h5 class="card-title m-0">1234</h5>
+                                <h5
+                                    class="card-title m-0"
+                                    id="card-yearly-total"
+                                >
+                                    -
+                                </h5>
                             </div>
                         </div>
                     </aside>
@@ -116,7 +121,7 @@
                 class="outline side-wrapper col-lg-4 px-3 d-flex flex-column justify-content-between"
             >
                 <!----- YEARLY CHART ------->
-                <div class="outline container-fluid p-0 m-0">
+                <div class="outline container-fluid p-0 m-0 visually-hidden">
                     <div class="yearly-chart-wrapper card shadow rounded-3">
                         <canvas class="" id="yearly-chart"></canvas>
                     </div>

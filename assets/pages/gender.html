@@ -22,7 +22,7 @@
             id="selectedMonth"
             class="text-center form-select"
         >
-            <option selected value="None">None</option>
+            <option selected value="-">-</option>
             <option value="January">January</option>
             <option value="February">February</option>
             <option value="March">March</option>
@@ -40,24 +40,34 @@
 </div>
 
 <main>
-    <div class="outline main-wrapper">
+    <div class="outline main-wrapper pt-lg-3">
         <div class="outline row">
+            <!----- MAIN CHART / UPPER INFO ------->
             <section class="outline main-chart-section col-lg-8">
-                <aside class="outline row">
-                    <div class="outline col-6" id="card-chart-name">
+                <aside class="outline row pb-3">
+                    <!------ CHART NAME ------>
+                    <div class="outline col-lg-4" id="card-chart-name">
                         <div class="card-wrapper card shadow-sm text-center">
-                            <div class="card-body">
-                                <h5 class="card-title m-0">GENDER</h5>
+                            <div
+                                class="card-body card-info-height align-items-center justify-content-center d-flex flex-column"
+                            >
+                                <h5 class="card-title bold m-0">GENDER</h5>
                             </div>
                         </div>
                     </div>
 
-                    <div class="outline col-6" id="card-date">
+                    <!------ CHART DATE ------>
+                    <div class="outline col-lg-4" id="card-date">
                         <div class="card-wrapper card shadow-sm text-center">
                             <div
-                                class="card-body d-flex align-items-center justify-content-center"
+                                class="card-body card-info-height d-flex flex-column align-items-center justify-content-center"
                             >
-                                <div class="d-flex flex-row gap-5">
+                                <h6
+                                    class="card-subtitle mb-2 text-body-secondary"
+                                >
+                                    DATE
+                                </h6>
+                                <div class="d-flex flex-row gap-2 gap-lg-4">
                                     <h5
                                         class="card-title card-year m-0"
                                         id="card-year"
@@ -68,25 +78,54 @@
                                         class="card-title card-month m-0"
                                         id="card-month"
                                     >
-                                        None
+                                        -
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!------ TOTAL ------>
+                    <aside class="SideTotal col-lg-4 outline visually-hidden">
+                        <div class="card-wrapper card shadow-sm text-center">
+                            <div class="card-body card-info-height">
+                                <h6
+                                    class="card-subtitle mb-2 text-body-secondary"
+                                >
+                                    TOTAL
+                                </h6>
+                                <h5 class="card-title m-0">1234</h5>
+                            </div>
+                        </div>
+                    </aside>
                 </aside>
 
-                <div class="outline container-xxl">
-                    <div class="main-chart-wrapper">
-                        <canvas id="main-chart"></canvas>
+                <!----- MAIN CHART ------->
+                <div class="outline container-fluid p-0 m-0">
+                    <div class="main-chart-wrapper card shadow rounded-3">
+                        <canvas class="" id="main-chart"></canvas>
                     </div>
                 </div>
             </section>
 
-            <section class="outline side-wrapper col-lg-4">
-                <div class="outline" id="card-total">TOTAL</div>
-                <div class="outline side-quarterly">
-                    <canvas id="side-chart-quarterly"></canvas>
+            <!----- SIDE CHARTS ------->
+            <section
+                class="outline side-wrapper col-lg-4 px-3 d-flex flex-column justify-content-between"
+            >
+                <!----- YEARLY CHART ------->
+                <div class="outline container-fluid p-0 m-0">
+                    <div class="yearly-chart-wrapper card shadow rounded-3">
+                        <canvas class="" id="yearly-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-------- QUARTERLY --------->
+                <div class="outline side-quarterly container-fluid p-0 m-0">
+                    <div
+                        class="side-chart-wrapper card shadow rounded-3 p-lg-3"
+                    >
+                        <canvas id="side-chart-quarterly"></canvas>
+                    </div>
                 </div>
             </section>
         </div>
